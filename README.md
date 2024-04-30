@@ -11,23 +11,27 @@ Create a configuration file called websites.yml in your home directory:
         docker_repo: name/repo-jasonsblog
         gcloud_project: micro-wrench-416713
 
-## Step 2
+## Step 2 
+
+Install [gcloud CLI](https://cloud.google.com/sdk/docs/install-sdk).
+
+## Step 3
 
 Login with gcloud:
 
-    $ cloud auth application-default login
+    $ gcloud auth application-default login
 
-## Step 3
+## Step 4
 
 Install dependencies (probably best to create either a miniconda env or a venv):
 
     $ pip install -r requirements.txt
 
-## Step 4 
+## Step 5 
 
 Ensure the directory containing deploytool is in your PATH.
 
-## Step 5 
+## Step 6 
 
 Run deploytool as follows:
 
