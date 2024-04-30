@@ -50,4 +50,3 @@ Run deploytool as follows:
             current deployed: yzxbmlf/www-house:14 04/24/2024, 00:23:25
             latest available: yzxbmlf/www-house:13 04/24/2024, 02:00:31
 
-TODO - does not yet deploy the latest version if it is out of date. Make it so.
