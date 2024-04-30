@@ -24,6 +24,7 @@ def main():
         print(f"\tstatus: {site.website_status}")
         print(f"\tcurrent deployed: {site.current_deployed()} {site.date_of_current_deployed()}")
         print(f"\tlatest available: {site.latest_available()} {site.date_of_latest_available()}")
+        site.update_if_needed()
 
 if __name__ == "__main__":
     main()

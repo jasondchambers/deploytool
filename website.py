@@ -31,6 +31,12 @@ class Website:
             else:
                 self.website_status = WebsiteStatus.NOT_DEPLOYED
 
+    def update_if_needed(self):
+        if self.website_status == WebsiteStatus.OUT_OF_DATE:
+            print(f"\tdeploying latest available: {self.latest_available()}")
+            deploy_output = subprocess.run(['deploy.sh', self.gcloud_project, self.latest_available()], stdout=subprocess.PIPE).stdout.decode('utf-8').strip()
+            print(deploy_output)
+
     def current_deployed(self):
         tag_name = None
         if self.currently_deployed_tag:
