@@ -1,0 +1,29 @@
+import website
+
+def main():
+    sketchyjason = website.Website(
+        url="sketchyjason.com", 
+        docker_repo="yzxbmlf/www-art", 
+        gcloud_project="www-art")
+    circleinaspiral = website.Website(
+        url="circleinaspiral.com", 
+        docker_repo="yzxbmlf/www-jasonsblog", 
+        gcloud_project="micro-spanner-416713")
+    stratfordremodel = website.Website(
+        url="stratfordremodel.com", 
+        docker_repo="yzxbmlf/www-house", 
+        gcloud_project="www-house")
+    bad = website.Website(
+        url="bad.com", 
+        docker_repo="yzxbmlf/www-bad", 
+        gcloud_project="www-bad")
+    list_of_websites = [sketchyjason, circleinaspiral, stratfordremodel, bad]
+    for site in list_of_websites:
+        site.check_for_updates()
+        print(f"{site.url}:")
+        print(f"\tstatus: {site.website_status}")
+        print(f"\tcurrent deployed: {site.current_deployed()} {site.date_of_current_deployed()}")
+        print(f"\tlatest available: {site.latest_available()} {site.date_of_latest_available()}")
+    
+if __name__ == "__main__":
+    main()

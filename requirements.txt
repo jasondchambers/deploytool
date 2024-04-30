@@ -1,0 +1,4 @@
+pyyaml
+requests
+google-cloud-datastore
+google-cloud-run
