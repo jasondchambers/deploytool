@@ -11,6 +11,7 @@ def load_websites_from_yaml(filename):
         website.Website(
             url=site["url"],
             docker_repo=site["docker_repo"],
+            service=site["service"],
             gcloud_project=site["gcloud_project"]
         )
         for site in websites_data["websites"]

@@ -1,8 +1,13 @@
 #!/usr/bin/env bash
-gcloud config set project $1 2>/dev/null
+
+gcloud_project=$1
+service=$2
+image=$3
+
+gcloud config set project $gcloud_project 2>/dev/null
 gcloud config set run/region us-central1
-gcloud run deploy $1 \
---image=$2 \
+gcloud run deploy $service \
+--image=$image \
 --region=us-central1 \
---project=$1 \
- && gcloud run services update-traffic $1 --to-latest
+--project=$gcloud_project \
+ && gcloud run services update-traffic $service --to-latest

@@ -11,9 +11,10 @@ class WebsiteStatus(Enum):
         
 class Website:
 
-    def __init__(self, url, docker_repo, gcloud_project):
+    def __init__(self, url, docker_repo, service, gcloud_project):
         self.url = url
         self.docker_repo = docker_repo
+        self.service = service
         self.gcloud_project = gcloud_project
         self.digest_currently_deployed = self.get_current_revision()
         self.tags = dockerhub.get_image_tags(self.docker_repo)
@@ -34,7 +35,7 @@ class Website:
     def update_if_needed(self):
         if self.website_status == WebsiteStatus.OUT_OF_DATE:
             print(f"\tdeploying latest available: {self.latest_available()}")
-            deploy_output = subprocess.run(['deploy.sh', self.gcloud_project, self.latest_available()], stdout=subprocess.PIPE).stdout.decode('utf-8').strip()
+            deploy_output = subprocess.run(['deploy.sh', self.gcloud_project, self.service, self.latest_available()], stdout=subprocess.PIPE).stdout.decode('utf-8').strip()
             print(deploy_output)
 
     def current_deployed(self):
