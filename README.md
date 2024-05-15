@@ -8,6 +8,7 @@ Create a configuration file called websites.yml in your home directory:
     websites:
       - name: somewebsite
         url: somewebsite.com
+        service: www-art
         docker_repo: name/repo-jasonsblog
         gcloud_project: micro-wrench-416713
 
